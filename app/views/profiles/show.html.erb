@@ -9,6 +9,8 @@
 
 <p> About me: <%= @profile.bio %></p>
 
-
-<h3>Start a new chat </h3>
-<%= render 'chats/form' %>
+    <% if current_user == @profile.user %>
+    <h3>Start a new chat </h3>
+    <%= render partial: 'chats/form', locals: {profile: @profile}%>
+    <% end %>
+<%= render @profile.chats %>
