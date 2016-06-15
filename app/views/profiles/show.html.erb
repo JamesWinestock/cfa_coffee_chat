@@ -1,0 +1,10 @@
+<h1><%= @user.username %>'s Profile</h1>
+
+<% if @profile.bio == nil %>
+  <%= form_for @user.profile do |f| %>
+   <%= f.text_area :bio, placeholder: "Enter your bio..." %>
+   <%= f.submit "Save!" %>
+  <% end %>
+<% end %>
+
+<%= @profile.bio %>

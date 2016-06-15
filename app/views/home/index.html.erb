@@ -1,0 +1,7 @@
+<h1>Welcome to coffee chat</h1>
+
+<% if signed_in? == false %>
+<p> <%= link_to "Get your learn on!", new_user_path %> </p>
+<% else %>
+<p> <%= link_to "See your dashboard", profiles_path %></p>
+<% end %>
