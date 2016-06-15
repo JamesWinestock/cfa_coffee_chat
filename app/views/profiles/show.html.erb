@@ -14,3 +14,6 @@
     <%= render partial: 'chats/form', locals: {profile: @profile}%>
     <% end %>
 <%= render @profile.chats %>
+
+<%= render partial: 'locations/form', locals: {locationable: @profile} %>
+<%= render partial: 'locations/location', locals: {locationable: @profile} %>

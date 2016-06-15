@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :index, :show]
   resources :profiles do
     resources :chats, only: [:new, :create]
+    resources :locations, only: [:new, :create], module: :profiles
   end
 
   root 'home#index'
