@@ -3,4 +3,6 @@
 
 <p><%= @chat.description %></p>
 
-<h2></h2>
+<h2>Post some wisdom</h2>
+<%= render partial: 'comments/form', locals: {chat: @chat} %>
+<%= render @chat.comments %>
