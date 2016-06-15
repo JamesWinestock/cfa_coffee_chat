@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       @profile = Profile.new
       @profile.user_id = @user.id
       @profile.save
-      redirect_to profile_path(@user)
+      redirect_to profile_path(@user.profile)
     else
       render :new
     end

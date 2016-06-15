@@ -12,7 +12,7 @@
     <% if signed_in? %>
       <%= link_to "Stop learnding", session_path, method: :delete %>
       <%= link_to "All profiles", users_path %>
-      <%= link_to "My Profile", profile_path(current_user) %>
+      <%= link_to "My Profile", profile_path(current_user.profile) %>
 
     <% else %>
       <%= link_to "Sign In", new_session_path %>
