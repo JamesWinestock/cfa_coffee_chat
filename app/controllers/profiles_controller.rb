@@ -9,6 +9,10 @@ class ProfilesController < ApplicationController
     @user = current_user
   end
 
+  def edit
+    @profile = Profile.find(params[:id])
+  end
+
   def update
     if @profile = current_user.profile
       @profile.update(profile_params)

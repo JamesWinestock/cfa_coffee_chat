@@ -10,6 +10,9 @@
 
     <p> Profile picture: <%= image_tag @profile.image.medium.url %></p>
     <p> About me: <%= @profile.bio %></p>
+    <% if @user == current_user %>
+      <%= link_to "Edit Profile", edit_profile_path%>
+    <% end %>
 
 
 
