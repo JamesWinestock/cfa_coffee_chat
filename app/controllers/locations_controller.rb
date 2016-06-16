@@ -1,4 +1,10 @@
 class LocationsController < ApplicationController
+
+  def show
+    @profile = current_user.profile
+    @location = Location.find(params[:id])
+  end
+
   def create
     @location = @locationable.locations.build(location_params)
     @location.user_id = current_user.id

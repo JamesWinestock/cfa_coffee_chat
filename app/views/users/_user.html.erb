@@ -1,1 +1,3 @@
+<p><%= image_tag user.profile.image.thumb.url %></p>
 <p><%= link_to user.username, profile_path(user.profile) %> joined, <%= time_ago_in_words(user.created_at) + ' ago'%></p>
+<p><%= user.profile.bio %></p>

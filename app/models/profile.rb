@@ -3,4 +3,6 @@ class Profile < ApplicationRecord
   has_many :chats
   has_many :comments
   has_many :locations, as: :locationable, dependent: :destroy
+  mount_uploader :image, ImageUploader
+
 end
