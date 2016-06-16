@@ -8,16 +8,19 @@
   <% end %>
 <% end %>
 
-<p> About me: <%= @profile.bio %></p>
-<p> Profile picture: <%= image_tag @profile.image.medium.url %></p>
+    <p> Profile picture: <%= image_tag @profile.image.medium.url %></p>
+    <p> About me: <%= @profile.bio %></p>
+
 
 
     <% if current_user == @profile.user %>
     <h3>Start a new chat </h3>
     <%= render partial: 'chats/form', locals: {profile: @profile}%>
     <% end %>
-<%= render @profile.chats %>
-<% if @user == current_user %>
-<%= render partial: 'locations/form', locals: {locationable: @profile} %>
-<% end %>
-<%= render partial: 'locations/location', locals: {locationable: @profile} %>
+  <%= render @profile.chats %>
+
+  <% if @user == current_user %>
+  <%= render partial: 'locations/form', locals: {locationable: @profile} %>
+  <% end %>
+
+  <%= render partial: 'locations/location', locals: {locationable: @profile} %>
