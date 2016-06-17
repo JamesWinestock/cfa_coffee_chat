@@ -2,6 +2,20 @@ class ChatsController < ApplicationController
 
   def show
     @chat = Chat.find(params[:id])
+
+  end
+
+  def index
+    @chats = Chat.all
+  end
+
+  def chats_list
+
+    if params[:search]
+      @chats = Chat.where("title LIKE ?","%#{params[:search]}%")
+    else
+      @chats = Chat.all
+    end
   end
 
   def edit

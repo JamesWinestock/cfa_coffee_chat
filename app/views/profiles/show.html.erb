@@ -22,8 +22,15 @@
     <% end %>
   <%= render @profile.chats %>
 
-  <% if @user == current_user %>
-  <%= render partial: 'locations/form', locals: {locationable: @profile} %>
-  <% end %>
-
+<!--  if location exists -->
+<% if @profile.locations.count > 0 %>
   <%= render partial: 'locations/location', locals: {locationable: @profile} %>
+  <!--  else show the form-->
+  <% else %>
+  <!--  if current user's profile-->
+    <% if @user == current_user %>
+      <%= render partial: 'locations/form', locals: {locationable: @profile} %>
+    <% end %>
+  <% end %>
+<!-- end -->
+  <!-- end -->

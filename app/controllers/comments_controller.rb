@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
 
 
 
+
   def create
     @profile = current_user.profile
     @chat = Chat.find(params[:chat_id])
@@ -14,7 +15,21 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
-    @chat = @comment.chat
+  end
+
+  def update
+      @comment = Comment.find(params[:id])
+      if @comment.update(comment_params)
+      flash[:notice] = "Success"
+        redirect_to chat_path(@comment.chat)
+      end
+
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.delete
+    redirect_to chat_path(@comment.chat), notice: "DESTROYED"
   end
 
   def comment_params
