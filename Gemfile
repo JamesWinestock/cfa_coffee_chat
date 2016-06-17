@@ -18,6 +18,7 @@ gem 'geocoder'
 gem 'carrierwave'
 gem "mini_magick"
 gem 'pry-rails'
+gem 'bootstrap-sass'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
