@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   resources :chats, only: :show do
-    resources :comments, only: [:new, :create]
+    resources :comments, only: [:new, :create, :edit, :destroy]
   end
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :index, :show]
   resources :profiles do
-    resources :chats, only: [:new, :create, :edit]
+    resources :chats, only: [:new, :create, :edit, :destroy]
     resources :locations, only: [:new, :create], module: :profiles
   end
 

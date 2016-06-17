@@ -4,6 +4,10 @@ class ChatsController < ApplicationController
     @chat = Chat.find(params[:id])
   end
 
+  def edit
+    @chat = Chat.find(params[:id])
+  end
+
   def new
     @chat = Chat.new
   end
