@@ -1,4 +1,7 @@
+
 <%= form_for [chat, Comment.new] do |f| %>
+
   <%= f.text_area :body, placeholder: "your wisdom here" %>
   <%= f.submit %>
+
 <% end %>

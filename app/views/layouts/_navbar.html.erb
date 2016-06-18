@@ -3,8 +3,8 @@
     <div class="navbar-header">
         <ul class="nav nav-pills">
           <% if signed_in? %>
-            <li role="presentation"><%= link_to "Stop learnding", session_path, method: :delete %></li>
-            <li role="presentation"><%= link_to "All profiles", users_path %></li>
+            <li role="presentation"><%= link_to "Stop Learnding", session_path, method: :delete %></li>
+            <li role="presentation"><%= link_to "All Profiles", users_path %></li>
             <li role="presentation"><%= link_to "My Profile", profile_path(current_user.profile) %></li>
             <li role="presentation"><%= link_to "All Chats", chats_path %></li>
           <% else %>

@@ -1,36 +1,50 @@
-<h1><%= @user.username %>'s Profile</h1>
+<!-- Profile card  -->
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="card">
+      <!--  display once they have an image -->
+      <img class="card-img-top" src="<%= @profile.image %>" alt="Card image cap" width="100%">
+        <h2 class="card-title"><%= @profile.user.username %></h2>
+        <!--  form if they haven't done a bio or image -->
+        <% if @profile.bio == nil %>
+          <%= form_for @user.profile do |f| %>
+          <%= f.file_field :image %>
+           <%= f.text_area :bio, placeholder: "Enter your bio..." %>
+           <%= f.submit "Save!" %>
+          <% end %>
+        <% end %>
 
-<% if @profile.bio == nil %>
-  <%= form_for @user.profile do |f| %>
-  <%= f.file_field :image %>
-   <%= f.text_area :bio, placeholder: "Enter your bio..." %>
-   <%= f.submit "Save!" %>
-  <% end %>
-<% end %>
+        <!-- display once they have a bio -->
+            <p class="card-text"> About me: <%= @profile.bio %></p>
+            <% if @user == current_user %>
+              <%= link_to "Edit", edit_profile_path, class: "button"%>
+            <% end %>
 
-    <p> Profile picture: <%= image_tag @profile.image.medium.url %></p>
-    <p> About me: <%= @profile.bio %></p>
-    <% if @user == current_user %>
-      <%= link_to "Edit Profile", edit_profile_path%>
-    <% end %>
+    </div>
+  </div>
+</div>
+
+    <!-- chat card -->
 
 
+        <% if current_user == @profile.user %>
+          <h3>Start a new chat </h3>
+          <%= render partial: 'chats/form', locals: {profile: @profile}%>
+        <% end %>
+      <%= render @profile.chats %>
 
-    <% if current_user == @profile.user %>
-    <h3>Start a new chat </h3>
-    <%= render partial: 'chats/form', locals: {profile: @profile}%>
-    <% end %>
-  <%= render @profile.chats %>
+
 
 <!--  if location exists -->
-<% if @profile.locations.count > 0 %>
-  <%= render partial: 'locations/location', locals: {locationable: @profile} %>
-  <!--  else show the form-->
-  <% else %>
-  <!--  if current user's profile-->
-    <% if @user == current_user %>
-      <%= render partial: 'locations/form', locals: {locationable: @profile} %>
-    <% end %>
-  <% end %>
-<!-- end -->
-  <!-- end -->
+
+    <% if @profile.locations.count > 0 %>
+      <%= render partial: 'locations/location', locals: {locationable: @profile} %>
+      <!--  else show the form-->
+      <% else %>
+      <!--  if current user's profile-->
+        <% if @user == current_user %>
+          <%= render partial: 'locations/form', locals: {locationable: @profile} %>
+        <% end %>
+      <% end %>
+    <!-- end -->
+      <!-- end -->
