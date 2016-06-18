@@ -1,8 +1,7 @@
-
-<%= form_for [profile, Chat.new] do |f| %>
-
-  <p><%= f.text_field :title, placeholder: "title" %></p>
-  <p><%= f.text_area :description, placeholder: "description" %></p>
-  <p><%= f.submit %></p>
-
+<div class="col-md-6">
+<%= simple_form_for [profile, Chat.new] do |f| %>
+  <%= f.input :title, label: "title" %>
+  <%= f.input :description, label: "description" %>
+  <%= f.button :submit %>
 <% end %>
+</div>

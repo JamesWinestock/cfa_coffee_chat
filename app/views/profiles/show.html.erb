@@ -1,6 +1,6 @@
 <!-- Profile card  -->
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-2">
     <div class="card">
       <!--  display once they have an image -->
       <img class="card-img-top" src="<%= @profile.image %>" alt="Card image cap" width="100%">
@@ -25,26 +25,27 @@
 </div>
 
     <!-- chat card -->
-
-
-        <% if current_user == @profile.user %>
-          <h3>Start a new chat </h3>
-          <%= render partial: 'chats/form', locals: {profile: @profile}%>
-        <% end %>
-      <%= render @profile.chats %>
-
-
+<div class="row">
+  <div class='col-md-6'>
+          <% if current_user == @profile.user %>
+            <h3>Start a new chat </h3>
+            <%= render partial: 'chats/form', locals: {profile: @profile}%>
+          <% end %>
+        <%= render @profile.chats %>
+  </div>
 
 <!--  if location exists -->
-
-    <% if @profile.locations.count > 0 %>
-      <%= render partial: 'locations/location', locals: {locationable: @profile} %>
-      <!--  else show the form-->
-      <% else %>
-      <!--  if current user's profile-->
-        <% if @user == current_user %>
-          <%= render partial: 'locations/form', locals: {locationable: @profile} %>
+  <div class="col-md-6">
+      <% if @profile.locations.count > 0 %>
+        <%= render partial: 'locations/location', locals: {locationable: @profile} %>
+        <!--  else show the form-->
+        <% else %>
+        <!--  if current user's profile-->
+          <% if @user == current_user %>
+            <%= render partial: 'locations/form', locals: {locationable: @profile} %>
+          <% end %>
         <% end %>
-      <% end %>
-    <!-- end -->
       <!-- end -->
+        <!-- end -->
+  </div>
+</div>

@@ -1,10 +1,9 @@
 
-  <%= form_for [locationable, Location.new] do |f| %>
-    <p><%= f.text_field :address, placeholder: "Address" %></p>
-    <p><%= f.text_field :suburb, placeholder: "Suburb" %></p>
-    <p><%= f.text_field :state, placeholder: "state" %></p>
-    <p><%= f.text_field :country, placeholder: "country" %></p>
-    <p><%= f.text_field :postcode, placeholder: "postcode" %></p>
-
-    <%= f.submit %>
+  <%= simple_form_for [locationable, Location.new] do |f| %>
+    <p><%= f.input :address, label: "Address" %></p>
+    <p><%= f.input :suburb, label: "Suburb" %></p>
+    <p><%= f.input :state, label: "state" %></p>
+    <p><%= f.input :country, label: "country" %></p>
+    <p><%= f.input :postcode, label: "postcode" %></p>
+    <%= f.button :submit %>
   <% end %>
