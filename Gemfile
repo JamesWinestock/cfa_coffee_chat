@@ -20,6 +20,7 @@ gem "mini_magick"
 gem 'pry-rails'
 gem 'bootstrap-sass'
 gem 'simple_form'
+gem 'country_select'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
