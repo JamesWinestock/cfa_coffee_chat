@@ -1,7 +1,8 @@
 
 <%= simple_form_for [chat, Comment.new] do |f| %>
 
-  <%= f.input :body, label: "your wisdom here"%>
-  <%= f.submit %>
+  <%= f.input :body, placeholder: "your wisdom here", width: "50%" %>
+  <%= f.button :submit %>
+
 
 <% end %>

@@ -1,7 +1,10 @@
+
 <div class="col-md-6">
 <%= simple_form_for [profile, Chat.new] do |f| %>
   <%= f.input :title, label: "title" %>
   <%= f.input :description, label: "description" %>
   <%= f.button :submit %>
+
+
 <% end %>
 </div>

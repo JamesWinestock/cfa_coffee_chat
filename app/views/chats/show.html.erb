@@ -1,8 +1,15 @@
-<h1>Chat about: <%= @chat.title %></h1> <p>Created by: <%= link_to @chat.user.username, profile_path(@chat.profile) %>, <%= time_ago_in_words(@chat.created_at) %> ago</p>
+<div class="card">
+
+  <div class="card-block">
+  
+    <h1 class="card-title">Chat about: <%= @chat.title %></h1> <p class="card-text">Created by: <%= link_to @chat.user.username, profile_path(@chat.profile) %>, <%= time_ago_in_words(@chat.created_at) %> ago</p>
 
 
-<p><%= @chat.description %></p>
+    <p class="card-text"><%= @chat.description %></p>
 
-<h2>Post some wisdom</h2>
-<%= render partial: 'comments/form', locals: {chat: @chat} %>
-<%= render @chat.comments %>
+    <h2 class="card-title">Post some wisdom</h2>
+    <%= render partial: 'comments/form', locals: {chat: @chat} %>
+    <%= render @chat.comments %>
+
+  </div>
+</div>
