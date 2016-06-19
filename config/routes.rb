@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get '/chats_list' => 'chats#chats_list'
-  get '/profiles_list' => 'profiles#profiles_list'
+  get '/users_list' => 'users#users_list'
     resources :chats, only: [:show, :index] do
     resources :comments, only: [:new, :create]
   end
