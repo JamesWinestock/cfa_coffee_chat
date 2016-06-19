@@ -1,5 +1,5 @@
-
-<p class="card-text">Wisdom: <%= comment.body %> </p>
+<br>
+<h4 class="card-title">Wisdom: <%= comment.body %> </h4>
 <p class="card-text">Posted by <%= link_to comment.profile.user.username, profile_path(comment.profile) %> <%= time_ago_in_words(comment.created_at) + " ago"%></p>
 <% if comment.profile == current_user.profile %>
   <%= link_to "Edit", edit_comment_path(comment), class: "btn btn-success" %>

@@ -1,6 +1,6 @@
 <!-- Profile card  -->
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-6 col-md-offset-2">
     <div class="card">
       <!--  display once they have an image -->
       <img class="card-img-top" src="<%= @profile.image %>" alt="Card image cap" width="100%">
@@ -20,24 +20,22 @@
               <%= link_to "Edit", edit_profile_path, class: "button"%>
             <% end %>
 
-    </div>
-  </div>
-</div>
 
     <!-- chat card -->
-<div class="row">
-  <div class='col-md-6'>
+
+
           <% if current_user == @profile.user %>
-            <h3>Start a new chat </h3>
+            <h3 class="card-title">Start a new chat </h3>
             <%= render partial: 'chats/form', locals: {profile: @profile}%>
           <% end %>
-        <%= render @profile.chats %>
-  </div>
+        <div><%= render @profile.chats %></div>
+      <br>
+
 
 <!--  if location exists -->
-  <div class="col-md-6">
+
       <% if @profile.locations.count > 0 %>
-        <%= render partial: 'locations/location', locals: {locationable: @profile} %>
+        <p class="card-text"><%= render partial: 'locations/location', locals: {locationable: @profile} %></p>
         <!--  else show the form-->
         <% else %>
         <!--  if current user's profile-->
@@ -47,5 +45,7 @@
         <% end %>
       <!-- end -->
         <!-- end -->
+
+      </div>
+    </div>
   </div>
-</div>

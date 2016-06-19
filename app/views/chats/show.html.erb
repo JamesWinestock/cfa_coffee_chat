@@ -1,7 +1,8 @@
+  <div class="col-md-6 col-md-offset-2">
 <div class="card">
 
   <div class="card-block">
-  
+
     <h1 class="card-title">Chat about: <%= @chat.title %></h1> <p class="card-text">Created by: <%= link_to @chat.user.username, profile_path(@chat.profile) %>, <%= time_ago_in_words(@chat.created_at) %> ago</p>
 
 
@@ -12,4 +13,5 @@
     <%= render @chat.comments %>
 
   </div>
+</div>
 </div>
