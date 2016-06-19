@@ -1,3 +1,8 @@
+<%= form_tag users_list_path, method: 'GET', :remote => true do %>
 
-
-<p><%= render @users %></p>
+  <p><%= text_field_tag :search, params[:search]%>
+     <%= submit_tag "Search"%></p>
+<% end %>
+<div id="people_grid">
+  <p><%= render partial: 'users/users_list', :locals => {users: @users} %></p>
+</div>

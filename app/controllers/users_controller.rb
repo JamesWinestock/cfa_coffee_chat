@@ -23,6 +23,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def users_list
+    if params[:search]
+      @users = User.where("username LIKE ?","%#{params[:search]}%")
+    else
+      @users = User.all
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   private
 
   def user_params
