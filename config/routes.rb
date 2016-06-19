@@ -2,11 +2,12 @@ Rails.application.routes.draw do
 
 
   root 'home#index'
-
+  get '/chats_list' => 'chats#chats_list'
+  get '/profiles_list' => 'profiles#profiles_list'
     resources :chats, only: [:show, :index] do
     resources :comments, only: [:new, :create]
   end
-    get '/chats_list' => 'chats#chats_list'
+
   resources :comments, only: [:edit, :update, :destroy]
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :index, :show]
