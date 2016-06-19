@@ -16,6 +16,11 @@ class ChatsController < ApplicationController
     else
       @chats = Chat.all
     end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit
