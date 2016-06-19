@@ -1,8 +1,10 @@
-<%= form_tag chats_list_path, method: 'GET', :remote => true do %>
+<div class="col-md-6 col-md-offset-2">
+  <%= form_tag chats_list_path, method: 'GET', :remote => true do %>
 
   <p><%= text_field_tag :search, params[:search]%>
      <%= submit_tag "Search"%></p>
 <% end %>
+</div>
 
 <div id="items_grid">
   <%= render partial: 'chats/chats_list', :locals => {chats: @chats} %>

@@ -1,8 +1,11 @@
-<% @chats.each do |chat| %>
-  <div class="card">
 
-   <h4 class="card-title"><%= link_to chat.title, chat_path(chat) %> Created by: <%= chat.user.username %></h4>
-   <p class="card-text"><%= chat.description %></p>
-   <br>
+<% @chats.each do |chat| %>
+  <div class="col-md-6 col-md-offset-2">
+    <div class="card">
+      <div class="card-block">
+         <h4 class="card-title"><%= link_to chat.title, chat_path(chat) %> Created by: <%= chat.user.username %></h4>
+         <p class="card-text"><%= chat.description %></p>
+      </div>
+     </div>
    </div>
 <% end %>
