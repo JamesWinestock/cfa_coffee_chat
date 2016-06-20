@@ -6,7 +6,7 @@ class ChatsController < ApplicationController
   end
 
   def index
-    @chats = Chat.all
+    @chats = Chat.all.order(created_at: :desc)
   end
 
   def chats_list

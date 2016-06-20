@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-block">
         <img class="card-img-top" src="<%= user.profile.image %>" alt="Card image cap" width="100%">
-        <h3 class="card-title"><%= link_to user.username, profile_path(user.profile) %> joined, <%= time_ago_in_words(user.created_at) + ' ago'%></h3>
+        <h3 class="card-title"><%= link_to user.username, profile_path(user.profile) %>  <p class="time">joined <%= time_ago_in_words(user.created_at) + ' ago'%></p></h3>
         <p class="card-text"><%= user.profile.bio %></p>
       </div>
     </div>

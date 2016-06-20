@@ -1,10 +1,15 @@
 <div class="jumbotron">
-  <h1 class="display-3">Welcome to coffee chat</h1>
-  <p class="lead"><%= @daily_quote %></p>
-  <% if signed_in? == nil %>
-  <p class="lead"> <%= link_to "Sign up", new_user_path, class: "btn btn-primary"%> for an account today!</p>
-  <p> Already a member? <%= link_to "Get your learn on!", new_session_path, class: "btn btn-primary"%> </p>
-  <% else %>
-  <p> <%= link_to "See dashboard", users_path, class: "btn btn-primary"%></p>
-  <% end %>
+  <!--  What everyone will see when they enter-->
+    <h1 class="display-3">Welcome to coffee chat</h1>
+      <p class="lead"><%= @daily_quote %></p>
+      <p class="lead">Coffee Chat makes study help easy. Connect with your fellow students to get help with exams and assignments. Form chat boards for your uni subjects to discuss them as a group or start a private chat with a tutor. It's easy to pay for your tutoring sessions using our Stripe integration. Each tutor has their own link to a Stripe account that you can use to easily flick them some cash.</p>
+      <p class="lead"> Join up as a tutor if you want to hustle up a little cash while you study or stay as a student, join our supportive community of learners and look for a tutor to mentor you through your studies.</p>
+      <!-- If they're a new user of not logged in  -->
+        <% if signed_in? == nil %>
+          <p class="lead"> <%= link_to "Sign up", new_user_path, class: "btn btn-primary"%> for an account today!</p>
+          <p> Already a member? <%= link_to "Get your learn on!", new_session_path, class: "btn btn-primary"%> </p>
+          <!-- if they're signed in -->
+        <% else %>
+          <p> <%= link_to "See dashboard", users_path, class: "btn btn-primary"%></p>
+        <% end %>
 </div>

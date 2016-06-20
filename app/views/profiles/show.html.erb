@@ -4,7 +4,7 @@
     <div class="card">
       <!--  display once they have an image -->
       <img class="card-img-top" src="<%= @profile.image %>" alt="Card image cap" width="100%">
-        <h2 class="card-title"><%= @profile.user.username %></h2>
+        <h2 class="card-title"><%= @profile.user.username %>  <p class="time">joined <%= time_ago_in_words(@profile.user.created_at) + ' ago'%></p></h2>
         <!--  form if they haven't done a bio or image -->
         <% if @profile.bio == nil %>
           <%= form_for @user.profile do |f| %>
